@@ -8,9 +8,13 @@
         img {
             margin: 0 auto;
             display: block;
+            padding-bottom: 20px;
+            max-width: 600px;
+            max-height: 300px;
         }
         #main {
             width: 80%;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -19,19 +23,22 @@
 
   <body>
     <div id="main" >
-        <img src="img.jpg" class="main" align="center" height="300">
+        <img src="img.jpg" class="main" align="center" width="100%" >
     </div>
     <script>
-    var colors  = d3.select("#main")
-
     d3.csv("colors.csv", 
             function(error, data) {
+                var colors  = d3.select("#main");
+                var h_space = d3.select("img").node().getBoundingClientRect().height;
+                h_space = window.innerHeight - h_space;
+                var spacing = 10;
+                var h = h_space / data.length - spacing;
               colors.selectAll("div")
                 .data(data)
               .enter().append("div")
-                .style("width","80%")
-                .style("height","20px")
-                .style("margin", "0 auto")
+                .style("width","100%")
+                .style("height", h + "px")
+                .style("margin-bottom", spacing + "px")
                 .style("display", "block")
                 .style("background-color", function(d) {
                     return d.c;

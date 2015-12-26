@@ -27,7 +27,7 @@ def main(filename, guess):
     print('c')
     for c in colors: 
         print(rgbToHex(int(c[0]),int(c[1]), int(c[2])))
-    image.save("image.jpg", "JPEG")
+    image.save("img.jpg", "JPEG")
 
 def findColors(data, guess=5):
     results = list()
