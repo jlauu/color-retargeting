@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Color Retarget</title>
+    <script src="http://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+    <style>
+        img {
+            margin: 0 auto;
+            display: block;
+        }
+        #main {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="main" >
+        <img src="img.jpg" class="main" align="center" height="300">
+    </div>
+    <script>
+    var colors  = d3.select("#main")
+
+    d3.csv("colors.csv", 
+            function(error, data) {
+              colors.selectAll("div")
+                .data(data)
+              .enter().append("div")
+                .style("width","80%")
+                .style("height","20px")
+                .style("margin", "0 auto")
+                .style("display", "block")
+                .style("background-color", function(d) {
+                    return d.c;
+                })
+                .style("text-align", "center")
+                .text(function(d) { return d.c; } );
+    });
+
+    </script>
+  </body>   
+</html>
