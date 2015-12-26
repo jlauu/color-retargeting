@@ -1,3 +1,5 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/mbostock/pen/Jaemg.
+Run with python DominantColors.py [image file] [estimated # colors]
+Open index.html in browser
 
- A minimal demonstration of how to create an HTML bar chart with D3. Fork this template to create your own chart.
+Requirements:
+ + Pillow python image library
