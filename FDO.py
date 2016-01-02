@@ -164,6 +164,9 @@ class FDO:
         for n in self._nodes:
             yield n.p
 
+    def results(self):
+        return list(self.nodes())
+
     def print(self):
         for n in self.nodes():
             print(n)
